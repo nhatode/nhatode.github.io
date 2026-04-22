@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naval Hatode | Lead Data Engineer · Databricks Expert · U.S. Govt Cleared</title>
+<meta name="description" content="Lead Data Engineer with 16+ years experience. Databricks Expert, FinOps Strategist, U.S. Government Cleared. Specializing in cloud data platforms, Azure, Snowflake, and enterprise modernization.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --bg2: #0d1117;
+    --bg3: #111820;
+    --surface: #141c26;
+    --surface2: #1a2535;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --accent: #ff6b35;
+    --accent2: #1e90ff;
+    --accent3: #00d4aa;
+    --text: #e8edf2;
+    --text2: #8fa3b8;
+    --text3: #566a7f;
+    --gold: #f5a623;
+    --radius: 12px;
+    --radius2: 20px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,12,16,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text2);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+  }
+  .nav-cta:hover { background: #e55a25; color: #fff !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(30,144,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,144,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 10%; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 500px;
+    background: radial-gradient(ellipse, rgba(255,107,53,0.08) 0%, rgba(30,144,255,0.06) 40%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.25);
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+  }
+  .hero-name .first { color: var(--text); }
+  .hero-name .last {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent2);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-title span { color: var(--text3); margin: 0 0.4rem; }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--text2);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-desc strong { color: var(--text); font-weight: 500; }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: #e55a25; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  /* Hero photo */
+  .hero-photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .hero-photo-frame {
+    width: 280px; height: 340px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text3);
+    font-size: 0.85rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .hero-photo-placeholder svg { width: 48px; height: 48px; opacity: 0.3; }
+  .hero-photo-accent {
+    position: absolute;
+    bottom: -10px; right: -10px;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(255,107,53,0.3);
+    pointer-events: none;
+  }
+  .hero-photo-tag {
+    position: absolute;
+    top: -16px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── STATS STRIP ─── */
+  #stats {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+  }
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 0 1rem;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 2rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--text2);
+    font-size: 1rem;
+    max-width: 520px;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--bg2); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius2);
+    padding: 1.75rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-accent, var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+
+  .skill-card-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,107,53,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  .skill-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .skill-tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.72rem;
+    color: var(--text2);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--bg); }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius2);
+    padding: 2rem;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .exp-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+  .exp-client {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text3);
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+  .exp-role {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+  .exp-sector {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    color: var(--text3);
+    margin-bottom: 1rem;
+  }
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .exp-bullets li {
+    font-size: 0.85rem;
+    color: var(--text2);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+    top: 0.05rem;
+  }
+  .exp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .exp-tech span {
+    background: rgba(30,144,255,0.08);
+    border: 1px solid rgba(30,144,255,0.15);
+    color: #5ba8ff;
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.68rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .exp-cleared {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    background: rgba(245,166,35,0.1);
+    border: 1px solid rgba(245,166,35,0.25);
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── ARTICLES ─── */
+  #articles { background: var(--bg2); }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .article-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius2);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .article-card:hover {
+    border-color: var(--border2);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .article-img {
+    height: 160px;
+    background: var(--surface2);
+    overflow: hidden;
+    position: relative;
+  }
+  .article-img img { width: 100%; height: 100%; object-fit: cover; }
+  .article-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--surface2), var(--bg3));
+  }
+  .article-body { padding: 1.5rem; flex: 1; }
+  .article-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text3);
+    margin-bottom: 0.5rem;
+  }
+  .article-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+  .article-read {
+    font-size: 0.78rem;
+    color: var(--accent2);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  /* ─── CERTS ─── */
+  #certifications { background: var(--bg); }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s;
+  }
+  .cert-card:hover { border-color: var(--border2); }
+  .cert-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .cert-name {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .cert-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text3);
+    margin-top: 0.2rem;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--bg2); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,107,53,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-link-info { flex: 1; }
+  .contact-link-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.1rem; }
+  .contact-link-val { font-size: 0.9rem; font-weight: 500; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .form-input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-input:focus { border-color: var(--accent2); }
+  textarea.form-input { resize: vertical; min-height: 120px; }
+  .form-submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.875rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .form-submit:hover { background: #e55a25; transform: translateY(-1px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text3);
+    font-size: 0.8rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-photo-wrap { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">NH<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#articles">Writing</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🔒 Active U.S. Government Security Clearance</div>
+      <h1 class="hero-name">
+        <span class="first">Naval</span><br>
+        <span class="last">Hatode</span>
+      </h1>
+      <div class="hero-title">
+        Lead Data Engineer<span>·</span>Databricks Expert<span>·</span>FinOps Strategist
+      </div>
+      <p class="hero-desc">
+        16+ years architecting <strong>enterprise-grade data platforms</strong> on Databricks, Azure, and Snowflake.
+        From USPTO federal modernization to trading analytics at Optiver — I build data infrastructure
+        that's <strong>fast, governed, and cost-efficient</strong>.
+      </p>
+      <div class="hero-btns">
+        <a href="#experience" class="btn-primary">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          View My Work
+        </a>
+        <a href="mailto:naval.ha@yahoo.com" class="btn-outline">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          Get In Touch
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-tag">OPEN TO OPPORTUNITIES</div>
+      <div class="hero-photo-frame">
+        
+          <!-- HOW TO ADD YOUR PHOTO:
+          Replace the placeholder below with: -->
+          <img src="naval.jpg" alt="Naval Hatode">
+          <!-- Put naval.jpg in the same folder as index.html -->
+       
+        <div class="hero-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Add photo here</span>
+        </div>
+      </div>
+      <div class="hero-photo-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-inner">
+    <div class="stat-item fade-in">
+      <div class="stat-num">16+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-num">$250K+</div>
+      <div class="stat-label">Annual Cost Savings</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Published Articles</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-num">70+</div>
+      <div class="stat-label">Legacy Jobs Migrated</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-in">// Technical Arsenal</div>
+    <h2 class="section-title fade-in">What I Build With</h2>
+    <p class="section-sub fade-in">A battle-tested stack across cloud platforms, data engineering, and enterprise governance.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card fade-in" style="--card-accent:#ff6b35">
+        <div class="skill-card-icon" style="background:rgba(255,107,53,0.1)">🏗️</div>
+        <h3>Data Platforms</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Databricks</span>
+          <span class="skill-tag">Microsoft Fabric</span>
+          <span class="skill-tag">Snowflake</span>
+          <span class="skill-tag">Delta Lake</span>
+          <span class="skill-tag">Delta Live Tables</span>
+          <span class="skill-tag">Unity Catalog</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in" style="--card-accent:#1e90ff">
+        <div class="skill-card-icon" style="background:rgba(30,144,255,0.1)">☁️</div>
+        <h3>Cloud Platforms</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Azure (ADF, ADLS)</span>
+          <span class="skill-tag">AWS (S3, Glue)</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Azure DevOps</span>
+          <span class="skill-tag">Logic Apps</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in" style="--card-accent:#00d4aa">
+        <div class="skill-card-icon" style="background:rgba(0,212,170,0.1)">⚙️</div>
+        <h3>Data Engineering</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">PySpark</span>
+          <span class="skill-tag">DBT</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Airflow</span>
+          <span class="skill-tag">Spark Streaming</span>
+          <span class="skill-tag">Kafka</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in" style="--card-accent:#f5a623">
+        <div class="skill-card-icon" style="background:rgba(245,166,35,0.1)">💰</div>
+        <h3>FinOps & Governance</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Databricks Overwatch</span>
+          <span class="skill-tag">RBAC</span>
+          <span class="skill-tag">Unity Catalog</span>
+          <span class="skill-tag">Great Expectations</span>
+          <span class="skill-tag">Data Tokenization</span>
+          <span class="skill-tag">HIPAA</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in" style="--card-accent:#9b59b6">
+        <div class="skill-card-icon" style="background:rgba(155,89,182,0.1)">🔄</div>
+        <h3>CI/CD & Migrations</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">GitLab</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">BladeBridge</span>
+          <span class="skill-tag">Informatica → Databricks</span>
+          <span class="skill-tag">SAS → PySpark</span>
+          <span class="skill-tag">Terraform</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in" style="--card-accent:#e74c3c">
+        <div class="skill-card-icon" style="background:rgba(231,76,60,0.1)">📊</div>
+        <h3>Visualization & Pipelines</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">FiveTran</span>
+          <span class="skill-tag">Auto Loader</span>
+          <span class="skill-tag">Medallion Architecture</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-in">// Client Engagements</div>
+    <h2 class="section-title fade-in">Featured Projects</h2>
+    <p class="section-sub fade-in">Enterprise-scale data platform delivery across Federal, Finance, Healthcare, and Trading sectors.</p>
+
+    <div class="exp-grid">
+
+      <!-- Optiver -->
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div>
+            <div class="exp-client">Optiver</div>
+            <div class="exp-role">Lead Data Engineer / Architect</div>
+          </div>
+          <div class="exp-date">Jan 2026 – Present</div>
+        </div>
+        <div class="exp-sector">📈 Trading & Finance · Chicago</div>
+        <ul class="exp-bullets">
+          <li>Architecting high-performance Research Data Lakehouse on Databricks + Delta Lake for predictive & real-time trading analytics</li>
+          <li>Optimizing petabyte-scale Delta tables with Z-Ordering, clustering & partition pruning</li>
+          <li>Building pipelines via Spark Structured Streaming, Auto Loader & Delta Live Tables with Unity Catalog CI/CD</li>
+        </ul>
+        <div class="exp-tech">
+          <span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>DLT</span><span>Unity Catalog</span>
+        </div>
+      </div>
+
+      <!-- PetSmart -->
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div>
+            <div class="exp-client">PetSmart</div>
+            <div class="exp-role">Solution Architect</div>
+          </div>
+          <div class="exp-date">Aug – Dec 2025</div>
+        </div>
+        <div class="exp-sector">🛒 Retail</div>
+        <ul class="exp-bullets">
+          <li>Migrated Informatica PowerCenter ETL to Databricks using BladeBridge automation — 40% timeline reduction</li>
+          <li>Established CI/CD + integration testing and reconciliation frameworks for environment-safe deployments</li>
+        </ul>
+        <div class="exp-tech">
+          <span>BladeBridge</span><span>Informatica PC</span><span>Databricks</span><span>CI/CD</span>
+        </div>
+      </div>
+
+      <!-- HCA -->
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div>
+            <div class="exp-client">HCA (Harbour Capital)</div>
+            <div class="exp-role">Lead Data Engineer</div>
+          </div>
+          <div class="exp-date">Jan – Aug 2025</div>
+        </div>
+        <div class="exp-sector">💼 Finance</div>
+        <ul class="exp-bullets">
+          <li>Led end-to-end Informatica PowerCenter → Databricks PySpark migration; re-engineered RDBMS stored procs into Spark jobs</li>
+          <li>Implemented secure ingestion via AWS S3 with KMS encryption; tuned Spark using partitioning, broadcast joins & optimized file formats</li>
+        </ul>
+        <div class="exp-tech">
+          <span>PySpark</span><span>AWS S3</span><span>KMS</span><span>Databricks</span>
+        </div>
+      </div>
+
+      <!-- USPTO -->
+      <div class="exp-card fade-in">
+        <span class="exp-cleared">🔒 GOV'T CLEARED</span>
+        <div class="exp-header">
+          <div>
+            <div class="exp-client">USPTO</div>
+            <div class="exp-role">Solution Architect</div>
+          </div>
+          <div class="exp-date">May 2023 – Jan 2025</div>
+        </div>
+        <div class="exp-sector">🏛️ U.S. Federal Government</div>
+        <ul class="exp-bullets">
+          <li>Cloudera CDP/Hadoop → Databricks on AWS; designed workspace, IAM, VPC & security model</li>
+          <li>Implemented Unity Catalog governance, FiveTran + AWS DMS ingestion, CI/CD via GitLab, Great Expectations testing</li>
+          <li>FinOps optimization via Overwatch — 30%+ compute cost savings identified</li>
+        </ul>
+        <div class="exp-tech">
+          <span>Databricks</span><span>AWS</span><span>Unity Catalog</span><span>FiveTran</span><span>GitLab</span>
+        </div>
+      </div>
+
+      <!-- HealthPartners -->
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div>
+            <div class="exp-client">HealthPartners</div>
+            <div class="exp-role">Lead Data Engineer</div>
+          </div>
+          <div class="exp-date">Jan 2022 – May 2023</div>
+        </div>
+        <div class="exp-sector">🏥 Healthcare</div>
+        <ul class="exp-bullets">
+          <li>Architected real-time intelligence using Microsoft Fabric (Eventhouse, Eventstream, KQL, Fabric Activator)</li>
+          <li>Led medallion Lakehouse design; implemented FinOps, Airflow orchestration, Unity Catalog & RBAC governance</li>
+        </ul>
+        <div class="exp-tech">
+          <span>MS Fabric</span><span>KQL</span><span>Airflow</span><span>RBAC</span>
+        </div>
+      </div>
+
+      <!-- United Health Group -->
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div>
+            <div class="exp-client">United Health Group (Optum)</div>
+            <div class="exp-role">Sr. Data Engineer</div>
+          </div>
+          <div class="exp-date">Jan – Dec 2021</div>
+        </div>
+        <div class="exp-sector">🏥 Healthcare</div>
+        <ul class="exp-bullets">
+          <li>Migrated 70+ SAS batch jobs to Databricks PySpark — 50% processing time reduction</li>
+          <li>Tokenized PHI data for HIPAA compliance; integrated Azure Event Grid for real-time event-driven workflows</li>
+          <li>Enabled CI/CD via Azure DevOps; stratified 5M+ members for segmentation models</li>
+        </ul>
+        <div class="exp-tech">
+          <span>PySpark</span><span>Snowflake</span><span>Azure Event Grid</span><span>HIPAA</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-in">// Thought Leadership</div>
+    <h2 class="section-title fade-in">Published on Medium</h2>
+    <p class="section-sub fade-in">Sharing deep-dive technical insights on Databricks, FinOps, Spark, and cloud data architecture.</p>
+
+    <div class="articles-grid">
+
+      <a href="https://medium.com/@naval.hatode/this-guide-takes-you-beyond-a-local-setup-and-shows-how-to-configure-dbt-with-snowflake-for-7d6c8e599505" target="_blank" class="article-card fade-in">
+        <div class="article-img">
+          <img src="https://miro.medium.com/v2/resize:fill:320:214/1*sSewL1bgc39lEBG44ZNH9g.png" alt="DBT + Snowflake" loading="lazy">
+        </div>
+        <div class="article-body">
+          <div class="article-date">Apr 22, 2025</div>
+          <div class="article-title">Configuring DBT with Snowflake: IAM, Security & Enterprise Setup</div>
+          <div class="article-read">Read on Medium →</div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@naval.hatode/deploying-serverless-model-endpoints-on-databricks-a-step-by-step-guide-3b89a3e7d393" target="_blank" class="article-card fade-in">
+        <div class="article-img">
+          <img src="https://miro.medium.com/v2/resize:fill:320:214/1*yIAx3sdqQtEIHQlu8y4F-Q.png" alt="Serverless Databricks" loading="lazy">
+        </div>
+        <div class="article-body">
+          <div class="article-date">Jan 2, 2025</div>
+          <div class="article-title">Deploying Serverless Model Endpoints on Databricks: A Step-by-Step Guide</div>
+          <div class="article-read">Read on Medium →</div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@naval.hatode/databricks-meets-finops-best-practices-for-managing-and-optimizing-cloud-cost-f65cc2f4da98" target="_blank" class="article-card fade-in">
+        <div class="article-img">
+          <img src="https://miro.medium.com/v2/resize:fill:320:214/1*2puDBR5JemJUFMrAalz5kQ.jpeg" alt="FinOps" loading="lazy">
+        </div>
+        <div class="article-body">
+          <div class="article-date">Oct 22, 2024</div>
+          <div class="article-title">Databricks Meets FinOps: Best Practices for Managing and Optimizing Cloud Cost</div>
+          <div class="article-read">Read on Medium →</div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@naval.hatode/unlock-seamless-data-mastery-with-databricks-unity-catalog-your-key-to-governance-and-security-in-1b17d7c44502" target="_blank" class="article-card fade-in">
+        <div class="article-img">
+          <div class="article-img-placeholder">🔐</div>
+        </div>
+        <div class="article-body">
+          <div class="article-date">Oct 3, 2024</div>
+          <div class="article-title">Unlock Seamless Data Mastery with Databricks Unity Catalog</div>
+          <div class="article-read">Read on Medium →</div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/ci-cd/ci-cd-using-azure-devops-and-aws-databricks-2a56ca64ebe6" target="_blank" class="article-card fade-in">
+        <div class="article-img">
+          <img src="https://miro.medium.com/v2/resize:fill:320:214/1*-wIGcTYfZelUvxZlzAawHg.jpeg" alt="CI/CD" loading="lazy">
+        </div>
+        <div class="article-body">
+          <div class="article-date">Oct 27, 2022</div>
+          <div class="article-title">CI/CD using Azure DevOps and AWS Databricks</div>
+          <div class="article-read">Read on Medium →</div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@naval.hatode/performance-tuning-of-spark-jobs-22271e8eaff6" target="_blank" class="article-card fade-in">
+        <div class="article-img">
+          <img src="https://miro.medium.com/v2/resize:fill:320:214/1*d9O1tQCz1joGYHv8pGSggw.jpeg" alt="Spark Tuning" loading="lazy">
+        </div>
+        <div class="article-body">
+          <div class="article-date">Mar 30, 2022</div>
+          <div class="article-title">Performance Tuning of Spark Jobs!</div>
+          <div class="article-read">Read on Medium →</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="https://medium.com/@naval.hatode" target="_blank" class="btn-outline">
+        View All Articles on Medium →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-in">// Credentials</div>
+    <h2 class="section-title fade-in">Certifications</h2>
+    <p class="section-sub fade-in">Continuously sharpening edge skills across leading cloud and data platforms.</p>
+
+    <div class="certs-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(0,120,212,0.15);font-size:1.4rem">🟦</div>
+        <div>
+          <div class="cert-name">Microsoft Fabric Data Engineer Associate</div>
+          <div class="cert-year">2026</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(255,107,53,0.1);font-size:1.4rem">🟧</div>
+        <div>
+          <div class="cert-name">Azure Databricks Platform Architect</div>
+          <div class="cert-year">2024</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(255,107,53,0.1);font-size:1.4rem">🟧</div>
+        <div>
+          <div class="cert-name">Databricks Certified Data Engineer</div>
+          <div class="cert-year">2023</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(0,120,212,0.15);font-size:1.4rem">🟦</div>
+        <div>
+          <div class="cert-name">Azure Fundamentals (AZ-900)</div>
+          <div class="cert-year">2023</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(41,182,246,0.1);font-size:1.4rem">❄️</div>
+        <div>
+          <div class="cert-name">Snowflake Hands-on Essentials</div>
+          <div class="cert-year">2022</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(255,107,53,0.1);font-size:1.4rem">🟧</div>
+        <div>
+          <div class="cert-name">Databricks Lakehouse Fundamentals</div>
+          <div class="cert-year">2022</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(255,153,0,0.1);font-size:1.4rem">☁️</div>
+        <div>
+          <div class="cert-name">AWS Solutions Architect – Associate</div>
+          <div class="cert-year">2021</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-icon" style="background:rgba(100,200,100,0.1);font-size:1.4rem">📋</div>
+        <div>
+          <div class="cert-name">ITIL Foundation</div>
+          <div class="cert-year">2016</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-in">// Let's Connect</div>
+    <h2 class="section-title fade-in">Get In Touch</h2>
+    <p class="section-sub fade-in">Open to senior/lead data engineering roles, consulting engagements, and Databricks community collaboration.</p>
+
+    <div class="contact-grid">
+      <div>
+        <p style="color:var(--text2); font-size:1rem; line-height:1.7; margin-bottom:0.5rem; font-weight:300;">
+          Whether you're looking for a senior data engineering partner for your next cloud modernization,
+          or want to discuss Databricks architecture — I'd love to hear from you.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:naval.ha@yahoo.com" class="contact-link fade-in">
+            <div class="contact-link-icon">✉️</div>
+            <div class="contact-link-info">
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-val">naval.ha@yahoo.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/naval-hatode-367aa69a/" target="_blank" class="contact-link fade-in">
+            <div class="contact-link-icon">💼</div>
+            <div class="contact-link-info">
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-val">linkedin.com/in/naval-hatode-367aa69a</div>
+            </div>
+          </a>
+          <a href="https://github.com/nhatode" target="_blank" class="contact-link fade-in">
+            <div class="contact-link-icon">🐙</div>
+            <div class="contact-link-info">
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-val">github.com/nhatode</div>
+            </div>
+          </a>
+          <a href="https://medium.com/@naval.hatode" target="_blank" class="contact-link fade-in">
+            <div class="contact-link-icon">📝</div>
+            <div class="contact-link-info">
+              <div class="contact-link-label">Medium</div>
+              <div class="contact-link-val">medium.com/@naval.hatode</div>
+            </div>
+          </a>
+          <a href="tel:+12243854441" class="contact-link fade-in">
+            <div class="contact-link-icon">📞</div>
+            <div class="contact-link-info">
+              <div class="contact-link-label">Phone</div>
+              <div class="contact-link-val">+1 (224) 385-4441</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <!-- Formspree contact form — replace YOUR_FORM_ID with your free Formspree ID -->
+        <form class="contact-form fade-in" action="https://formspree.io/f/xvzdvzve" method="POST">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-input" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-input" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input type="text" name="subject" class="form-input" placeholder="Data Engineering Opportunity">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-input" placeholder="Tell me about the opportunity or project..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Naval Hatode · Hoffman Estates, IL · Built with purpose, not templates ·
+    <a href="https://github.com/nhatode" target="_blank">github.com/nhatode</a>
+  </p>
+</footer>
+
+<script>
+  // Scroll-triggered fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    // Stagger siblings in the same grid
+    const parent = el.parentElement;
+    const siblings = [...parent.querySelectorAll('.fade-in')];
+    const idx = siblings.indexOf(el);
+    el.dataset.delay = idx * 80;
+    observer.observe(el);
+  });
+
+  // Animated counters
+  function animateCount(el, target, suffix = '') {
+    let start = 0;
+    const isFloat = target !== Math.floor(target);
+    const increment = target / 60;
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        el.textContent = (isFloat ? target.toFixed(1) : target) + suffix;
+        clearInterval(timer);
+      } else {
+        el.textContent = (isFloat ? start.toFixed(1) : Math.floor(start)) + suffix;
+      }
+    }, 16);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      const nums = document.querySelectorAll('.stat-num');
+      animateCount(nums[0], 16, '+');
+      animateCount(nums[1], 250, 'K+');
+      nums[1].textContent = '$0K+';
+      setTimeout(() => animateCount(nums[1], 250, 'K+'), 0);
+      animateCount(nums[2], 8, '+');
+      animateCount(nums[3], 70, '+');
+      statsObserver.disconnect();
+    }
+  }, { threshold: 0.5 });
+
+  const statsEl = document.getElementById('stats');
+  if (statsEl) statsObserver.observe(statsEl);
+
+  // Fix the $250K counter to show dollar sign
+  const stat2 = document.querySelectorAll('.stat-num')[1];
+  if (stat2) {
+    const origAnimate = animateCount;
+    const statsObs2 = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        let start = 0;
+        const target = 250;
+        const timer = setInterval(() => {
+          start += target / 60;
+          if (start >= target) {
+            stat2.textContent = '$250K+';
+            clearInterval(timer);
+          } else {
+            stat2.textContent = '$' + Math.floor(start) + 'K+';
+          }
+        }, 16);
+        statsObs2.disconnect();
+      }
+    }, { threshold: 0.5 });
+    statsObs2.observe(statsEl);
+  }
+</script>
+</body>
+</html>
